@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\AdvertisingCampaign;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
  * Class AdvertisingCampaignRepository
@@ -23,6 +24,7 @@ class AdvertisingCampaignRepository
 
     /**
      * AdvertisingCampaignRepository constructor.
+     *
      * @param AdvertisingCampaign $model
      */
     public function __construct(AdvertisingCampaign $model)
@@ -31,6 +33,8 @@ class AdvertisingCampaignRepository
     }
 
     /**
+     * Find many Advertising campaign.
+     *
      * @return LengthAwarePaginator
      */
     public function find(): ?LengthAwarePaginator
@@ -39,10 +43,15 @@ class AdvertisingCampaignRepository
     }
 
     /**
+     * Find one Advertising campaign.
+     *
      * @param int $id
+     *
      * @return mixed
+     *
+     * @throws ModelNotFoundException
      */
-    public function findOne(int $id)
+    public function findOne(int $id): AdvertisingCampaign
     {
         return $this->model::findOrFail($id);
     }

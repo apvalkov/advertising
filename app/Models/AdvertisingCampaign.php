@@ -20,6 +20,10 @@ class AdvertisingCampaign extends Model
         'title', 'price', 'display_frequency'
     ];
 
+    protected $dates = [
+        'deleted_at', 'created_at', 'updated_at'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
